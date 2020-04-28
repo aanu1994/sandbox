@@ -1,9 +1,13 @@
 version: 2.1 # use CircleCI 2.1
+
+orbs:
+  awseb-tools: paperspace/awseb-tools@0.2.5
+
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     working_directory: ~/sandbox/sandbox.api # directory where steps will run
     docker: # run the steps with Docker
-      - image: circleci/node:10.16.3 # ...with this image as the primary container; this is where all `steps` will run
+      - image: circleci/node:13  #10.16.3 # ...with this image as the primary container; this is where all `steps` will run
     steps: # a collection of executable commands
       - checkout: # special step to check out source code to working directory
           path: ~/sandbox
@@ -13,19 +17,16 @@ jobs: # a collection of steps
       - run:
           name: install-npm
           command: npm install
-      - restore_cache: # special step to restore the dependency cache
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-      - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
-      - run: # run tests
-          name: test
-          command: npm run test
-      - run: # run coverage report
-          name: code-coverage
-          command: './node_modules/.bin/nyc report --reporter=text-lcov'
+      # - restore_cache: # special step to restore the dependency cache
+      #     # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+      #     key: dependency-cache-{{ checksum "package-lock.json" }}
+      # - save_cache: # special step to save the dependency cache
+      #     key: dependency-cache-{{ checksum "package-lock.json" }}
+      #     paths:
+      #       - ./node_modules
+      # - run: # run tests
+      #     name: test
+      #     command: npm run test
       # - store_artifacts: # special step to save test results as as artifact
       #     # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
       #     path: test-results.xml
@@ -36,3 +37,75 @@ jobs: # a collection of steps
       # - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
       #     path: test-results.xml
       # # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
+  
+
+  test:
+    working_directory: ~/sandbox/sandbox.api
+    docker:
+      - image: circleci/node:13
+    steps:
+      - checkout:
+          path: ~/sandbox
+      - run:
+          name: Run tests
+          command: npm run test
+
+  deploy:
+    working_directory: ~/sandbox/sandbox.api
+    docker:
+      - image: circleci/node:13
+    steps:
+      - checkout:
+          path: ~/sandbox
+
+          #Log the current branch
+      - run:
+          name: Show Current Branch
+          command: echo ${CIRCLE_BRANCH}
+
+      #Install the AWS cli
+      - run:
+          name: Installing python-pip and aws cli
+          working_directory: /
+          command: |
+            sudo apt-get -y -qq update
+            sudo apt-get install python-pip python-dev build-essential
+            sudo pip install awsebcli --upgrade
+
+      - run:
+          name: Deploy to AWS Elastic Beanstalk
+          command: eb deploy
+
+workflows:
+  version: 2
+  
+  build_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
+  build_test_deploy:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only: master
+
+
+
+        

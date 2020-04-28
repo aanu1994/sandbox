@@ -1,8 +1,5 @@
 version: 2.1 # use CircleCI 2.1
 
-orbs:
-  awseb-tools: paperspace/awseb-tools@0.2.5
-
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     working_directory: ~/sandbox/sandbox.api # directory where steps will run

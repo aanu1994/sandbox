@@ -2,12 +2,11 @@ version: 2.1 # use CircleCI 2.1
 
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
-    working_directory: ~/sandbox/sandbox.api # directory where steps will run
+    working_directory: ~/sandbox # directory where steps will run
     docker: # run the steps with Docker
       - image: circleci/node:13  #10.16.3 # ...with this image as the primary container; this is where all `steps` will run
     steps: # a collection of executable commands
-      - checkout: # special step to check out source code to working directory
-          path: ~/sandbox
+      - checkout # special step to check out source code to working directory
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@latest'
@@ -23,13 +22,11 @@ jobs: # a collection of steps
           command: npm run test
 
   deploy:
-    working_directory: ~/sandbox/sandbox.api
+    working_directory: ~/sandbox
     docker:
       - image: circleci/node:13
     steps:
-      - checkout:
-          path: ~/sandbox
-
+      - checkout
           #Log the current branch
       - run:
           name: Show Current Branch

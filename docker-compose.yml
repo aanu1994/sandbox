@@ -3,11 +3,11 @@ version: '3'
 services: 
     sandbox_api:
         container_name: sandbox
-        build: ./sandbox.api
+        build: .
         volumes: 
-        - ./sandbox.api:/usr/src/app
+        - .:/usr/src/app
         - /usr/src/app/node_modules
         ports: 
             - 7003:80
         env_file: 
-            - ./sandbox.api/env
+            - ./env

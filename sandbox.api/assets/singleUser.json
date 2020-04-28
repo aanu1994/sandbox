@@ -1,0 +1,107 @@
+{
+    "data": {
+        "type": "UserStaff",
+        "id": "d2dab71f4a3c480793492bef692f6c4e",
+        "attributes": {
+            "firstName": "Jonathan",
+            "middleName": "",
+            "lastName": "Reynolds",
+            "status": true,
+            "jobTitle": "Application Support Analyst",
+            "chatStatusDt": 1493730606811,
+            "lastSeenDt": 1572615724195,
+            "preferredLanguage": null,
+            "customProperties": {}
+        },
+        "relationships": {
+            "role": {
+                "data": {
+                    "type": "UserStaffRole",
+                    "id": "16"
+                }
+            },
+            "location": {
+                "data": {
+                    "type": "UserLocation",
+                    "id": "4"
+                }
+            },
+            "division": {
+                "data": {
+                    "type": "UserDivision",
+                    "id": "6"
+                }
+            },
+            "teams": {
+                "meta": {
+                    "count": 5
+                },
+                "data": [
+                    {
+                        "type": "Team",
+                        "id": "ff63422fc9844b529a563d7a3fb97ab8"
+                    },
+                    {
+                        "type": "Team",
+                        "id": "aea47465b16740d0ae4dc34efc1f5b22"
+                    },
+                    {
+                        "type": "Team",
+                        "id": "Tobi Team 1"
+                    },
+                    {
+                        "type": "Team",
+                        "id": "Onboarding Team 1"
+                    },
+                    {
+                        "type": "Team",
+                        "id": "OnboardingTeam1"
+                    }
+                ]
+            },
+            "emails": {
+                "meta": {
+                    "count": 2
+                },
+                "data": [
+                    {
+                        "type": "UserEmail",
+                        "id": "2"
+                    },
+                    {
+                        "type": "UserEmail",
+                        "id": "3"
+                    }
+                ]
+            },
+            "phoneNumbers": {
+                "meta": {
+                    "count": 3
+                },
+                "data": [
+                    {
+                        "type": "UserPhoneNumber",
+                        "id": "2"
+                    },
+                    {
+                        "type": "UserPhoneNumber",
+                        "id": "3"
+                    },
+                    {
+                        "type": "UserPhoneNumber",
+                        "id": "4"
+                    }
+                ]
+            },
+            "title": {
+                "data": {
+                    "type": "Title",
+                    "id": "6"
+                }
+            },
+            "profile": {
+                "data": null
+            }
+        }
+    }
+}

@@ -1,0 +1,237 @@
+{
+    "links": {
+        "first": "https://uat.novastone.net/api/external/user-management/users/?page%5Bnumber%5D=1",
+        "last": "https://uat.novastone.net/api/external/user-management/users/?page%5Bnumber%5D=1",
+        "next": null,
+        "prev": null
+    },
+    "data": [
+        {
+            "type": "UserStaff",
+            "id": "b81a4fbf140c4b4f93de4d0c66110316",
+            "attributes": {
+                "firstName": "Margaret",
+                "middleName": "",
+                "lastName": "Hunt",
+                "status": true,
+                "jobTitle": "Relationship Manager Assistant",
+                "chatStatusDt": 1493730642049,
+                "lastSeenDt": 1521456647192,
+                "preferredLanguage": null,
+                "customProperties": {}
+            },
+            "relationships": {
+                "role": {
+                    "data": {
+                        "type": "UserStaffRole",
+                        "id": "6"
+                    }
+                },
+                "location": {
+                    "data": {
+                        "type": "UserLocation",
+                        "id": "1"
+                    }
+                },
+                "division": {
+                    "data": {
+                        "type": "UserDivision",
+                        "id": "1"
+                    }
+                },
+                "teams": {
+                    "meta": {
+                        "count": 3
+                    },
+                    "data": [
+                        {
+                            "type": "Team",
+                            "id": "4959c60626de4202b4e7c397c5de9a38"
+                        },
+                        {
+                            "type": "Team",
+                            "id": "dad057461c394a95aabb9205938df7c5"
+                        },
+                        {
+                            "type": "Team",
+                            "id": "1acc1de2150d42469a6ce6313fa6d7c5"
+                        }
+                    ]
+                },
+                "emails": {
+                    "meta": {
+                        "count": 3
+                    },
+                    "data": [
+                        {
+                            "type": "UserEmail",
+                            "id": "67"
+                        },
+                        {
+                            "type": "UserEmail",
+                            "id": "68"
+                        },
+                        {
+                            "type": "UserEmail",
+                            "id": "69"
+                        }
+                    ]
+                },
+                "phoneNumbers": {
+                    "meta": {
+                        "count": 4
+                    },
+                    "data": [
+                        {
+                            "type": "UserPhoneNumber",
+                            "id": "89"
+                        },
+                        {
+                            "type": "UserPhoneNumber",
+                            "id": "90"
+                        },
+                        {
+                            "type": "UserPhoneNumber",
+                            "id": "91"
+                        },
+                        {
+                            "type": "UserPhoneNumber",
+                            "id": "92"
+                        }
+                    ]
+                },
+                "title": {
+                    "data": {
+                        "type": "Title",
+                        "id": "2"
+                    }
+                },
+                "profile": {
+                    "data": {
+                        "type": "PermissionsProfile",
+                        "id": "5"
+                    }
+                }
+            }
+        },
+        {
+            "type": "UserStaff",
+            "id": "34cf9f7ddd4f4dffb0efe2c95f22c127",
+            "attributes": {
+                "firstName": "Phillip",
+                "middleName": "",
+                "lastName": "Medina",
+                "status": true,
+                "jobTitle": "Relationship Manager Assistant",
+                "chatStatusDt": 1493730643538,
+                "lastSeenDt": 1518706968197,
+                "preferredLanguage": null,
+                "customProperties": {}
+            },
+            "relationships": {
+                "role": {
+                    "data": {
+                        "type": "UserStaffRole",
+                        "id": "6"
+                    }
+                },
+                "location": {
+                    "data": {
+                        "type": "UserLocation",
+                        "id": "1"
+                    }
+                },
+                "division": {
+                    "data": {
+                        "type": "UserDivision",
+                        "id": "1"
+                    }
+                },
+                "teams": {
+                    "meta": {
+                        "count": 4
+                    },
+                    "data": [
+                        {
+                            "type": "Team",
+                            "id": "4ae17afe7fa041d9b12bf51902698881"
+                        },
+                        {
+                            "type": "Team",
+                            "id": "4959c60626de4202b4e7c397c5de9a38"
+                        },
+                        {
+                            "type": "Team",
+                            "id": "dad057461c394a95aabb9205938df7c5"
+                        },
+                        {
+                            "type": "Team",
+                            "id": "1acc1de2150d42469a6ce6313fa6d7c5"
+                        }
+                    ]
+                },
+                "emails": {
+                    "meta": {
+                        "count": 3
+                    },
+                    "data": [
+                        {
+                            "type": "UserEmail",
+                            "id": "70"
+                        },
+                        {
+                            "type": "UserEmail",
+                            "id": "71"
+                        },
+                        {
+                            "type": "UserEmail",
+                            "id": "72"
+                        }
+                    ]
+                },
+                "phoneNumbers": {
+                    "meta": {
+                        "count": 4
+                    },
+                    "data": [
+                        {
+                            "type": "UserPhoneNumber",
+                            "id": "93"
+                        },
+                        {
+                            "type": "UserPhoneNumber",
+                            "id": "94"
+                        },
+                        {
+                            "type": "UserPhoneNumber",
+                            "id": "95"
+                        },
+                        {
+                            "type": "UserPhoneNumber",
+                            "id": "96"
+                        }
+                    ]
+                },
+                "title": {
+                    "data": {
+                        "type": "Title",
+                        "id": "1"
+                    }
+                },
+                "profile": {
+                    "data": {
+                        "type": "PermissionsProfile",
+                        "id": "5"
+                    }
+                }
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pages": 1,
+            "count": 2
+        }   
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "sandbox-api",
+  "version": "1.0.0",
+  "description": "Static Response API for Novastone API",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodeman",
+    "test": "npm run test"
+  },
+  "author": "Tobi Adekanye",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "uuid": "^7.0.3"
+  }
+}

@@ -53,8 +53,8 @@ app.post('/api/user-management/users', (req, res) =>{
     )
 });
 
-app.listen(process.env.PORT || 80, () => {
-    console.log(`Welcome to the Novastone Sandbox API environment, you are listening on port: ${process.env.PORT || 80}`);
+app.listen(process.env.PORT || 7000, () => {
+    console.log(`Welcome to the Novastone Sandbox API environment, you are listening on port: ${process.env.PORT || 7000}`);
 });
 
 module.exports = app;

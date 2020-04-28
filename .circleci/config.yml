@@ -1,18 +1,18 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.1.6
 jobs:
-  build-and-test:
-    executor:
-      name: node/default
+  build:
+    docker:
+      - image: circleci/node:13.8.0-stretch
     steps:
       - checkout
       - node:
           steps:
-            - run: cd sandbox.api
-            - run: npm install
-#             - run: npm test
-workflows:
-    build-and-test:
-      jobs:
-        - build-and-test
+            - run: 
+                name: change-directory
+                command: 'cd sandbox.api'
+            - run:
+                name: update-npm
+                command: 'sudo npm install -g npm@latest'
+            - run:
+                name: install-dependencies
+                command: 'sudo npm install'

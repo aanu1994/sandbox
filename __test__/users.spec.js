@@ -1,6 +1,6 @@
 
 const supertest = require('supertest');
-const app = require('../app');
+const app = require('../index');
 
 describe("Testing the welcome API endpoint", () => {
 

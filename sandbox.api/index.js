@@ -4,14 +4,18 @@ const app = express();
 const userService = require('./services/userService');
 
 app.use((req, res, next) => {
-    console.log(`${req.method} ${req.originalUrl} ${JSON.stringify(req.body)}`);
+    console.log(`${req.method} ${req.originalUrl} ${JSON.stringify(req.body) || ''}`);
     next();
 });
 
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Welcome to the bucky api!!!!');
+    res.send(
+        {
+            message: 'Welcome to the Novastone API'
+        }
+    )
 });
 
 app.get('/api/user-management/users/:id', (req, res) => {
@@ -52,3 +56,5 @@ app.post('/api/user-management/users', (req, res) =>{
 app.listen(process.env.PORT || 80, () => {
     console.log(`Welcome to the Novastone Sandbox API environment, you are listening on port: ${process.env.PORT || 80}`);
 });
+
+module.exports = app;

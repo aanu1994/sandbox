@@ -4,8 +4,9 @@
   "description": "Static Response API for Novastone API",
   "main": "index.js",
   "scripts": {
-    "start": "nodeman",
-    "test": "npm run test"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest --forceExit"
   },
   "author": "Tobi Adekanye",
   "license": "ISC",
@@ -13,5 +14,9 @@
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "uuid": "^7.0.3"
+  },
+  "devDependencies": {
+    "jest": "^25.4.0",
+    "supertest": "^4.0.2"
   }
 }

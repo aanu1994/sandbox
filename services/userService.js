@@ -14,38 +14,36 @@ const InvalidTitleException = (message) => {
 InvalidTitleException.prototype = new Error();
 
 const createClient = (requestBody) => {
+    var e = {
+        exception: "",
+        message: "",
+        status_code: "400",
+        status: false
+    }
 
     if (!titleService.getTitle(requestBody.title).result) {
-        var e =  {
-            exception: "InvalidTitleException",
-            message: "The provided title does not exist within your Novastone stack",
-            status_code: "400"
-        }
-
-        return e;
+        e.exception = e.exception + "InvalidTitleException";
+        e.message = e.message + "The provided title does not exist within your Novastone stack";
+        e.status = "error";
     }
 
     if (requestBody.userType != "UserClient" || requestBody.userType != "UserStaff") {
-        var e =  {
-            exception: "InvalidUserTypeException",
-            message: "Only UserClient & UserStaff users are permitted in Novastone",
-            status_code: "400"
-        }
+        e.exception = e.exception + ", InvalidUserTypeException";
+        e.message = e.message + ", Only UserClient & UserStaff users are permitted in Novastone";
+        e.status = "error";
+    }
 
+    if (e.status == "error") {
         return e;
     }
 
     createUserResponse.data.userType = requestBody.userType;
-
-    createUserResponse.data.relationships.title.data.id = titleService.getTitle(requestBody.title).value;
-
     createUserResponse.data.id = uuid.v4();
-
-
     createUserResponse.data.attributes.firstName = requestBody.firstName;
     createUserResponse.data.attributes.middleName = requestBody.middleName || "";
     createUserResponse.data.attributes.lastName = requestBody.lastName;
     createUserResponse.data.attributes.preferredLanguage = requestBody.preferredLanguage || 'en_GB';
+    createUserResponse.data.relationships.title.data.id = titleService.getTitle(requestBody.title).value;
 
     return createUserResponse;
 }

@@ -3,6 +3,7 @@ const axios = require('axios');
 const app = express();
 const userService = require('./services/userService');
 
+
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.originalUrl} ${JSON.stringify(req.body) || ''}`);
     next();

@@ -25,9 +25,23 @@ const createClient = (requestBody) => {
         return e;
     }
 
+    if (requestBody.userType != "UserClient" || requestBody.userType != "UserStaff") {
+        var e =  {
+            exception: "InvalidUserTypeException",
+            message: "Only UserClient & UserStaff users are permitted in Novastone",
+            status_code: "400"
+        }
+
+        return e;
+    }
+
+    createUserResponse.data.userType = requestBody.userType;
+
     createUserResponse.data.relationships.title.data.id = titleService.getTitle(requestBody.title).value;
 
     createUserResponse.data.id = uuid.v4();
+
+
     createUserResponse.data.attributes.firstName = requestBody.firstName;
     createUserResponse.data.attributes.middleName = requestBody.middleName || "";
     createUserResponse.data.attributes.lastName = requestBody.lastName;

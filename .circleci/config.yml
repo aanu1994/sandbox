@@ -14,7 +14,7 @@ jobs: # a collection of steps
           name: install-npm
           command: npm install
       - save_cache: # special step to save the dependency cache
-          key: dependency-cache1-{{ checksum "package-lock.json" }}
+          key: dependency-cache1-{{ checksum "package-lock.json" }} #Current key naming is based on a checksum of the package-lock.json. 
           paths:
             - ./node_modules
       # - run:
@@ -28,7 +28,7 @@ jobs: # a collection of steps
       steps:
         - checkout
         - restore_cache: # Restore Dependencies cached in the build Step
-            key: dependency-cache1-{{ checksum "package-lock.json" }}  
+            key: dependency-cache1-{{ checksum "package-lock.json" }}   # Unless the package-lock.json has changed from when it its state it was checksumed and stored, this will retrieve the first file matching this naming structure
         - run:
             name: Where am i
             command: "pwd && ls"
